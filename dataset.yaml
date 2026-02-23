@@ -1,0 +1,17 @@
+# Spinach Defect Detection
+path: /Users/blackmagic/Data Analyst/Spinach_Project/data/splits
+train: train/images
+val: val/images
+test: test/images
+
+nc: 8
+
+names:
+  0: spinach_leaf
+  1: stem
+  2: GOOD
+  3: YELLOW
+  4: HOLE
+  5: TRACK
+  6: WSPOT
+  7: FSPOT

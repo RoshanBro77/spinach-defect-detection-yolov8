@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+
+# Virtual env
+spinach_env/
+venv/
+.env/
+
+# YOLO / Ultralytics runs
+runs/
+wandb/
+
+# Large model weights
+*.pt
+*.onnx
+*.engine
+
+# Data (choose your policy)
+data/*

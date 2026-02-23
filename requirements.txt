@@ -1,0 +1,71 @@
+# ============================================================
+# Spinach Defect Detection — requirements.txt
+# Optimised for Apple MacBook Air M2 (16GB) — NO CUDA needed
+# Python 3.10 or 3.11 recommended
+# Install with: pip install -r requirements.txt
+# ============================================================
+
+# --- Core Deep Learning (Apple MPS backend, NO CUDA version) ---
+# Install PyTorch for Apple Silicon via pip (NOT conda for MPS support)
+torch>=2.2.0          # MPS support is stable from 2.1+ on Apple Silicon
+torchvision>=0.17.0   # Must match torch version
+# NOTE: Do NOT install torch with "+cu*" suffix — that's CUDA-only (Windows/Linux)
+
+# --- YOLOv8 (Ultralytics) ---
+ultralytics>=8.1.0    # Includes YOLOv8 with MPS support built-in
+
+# --- Dataset Download (Roboflow) ---
+roboflow>=1.1.0       # For downloading annotated datasets from Roboflow Universe
+
+# --- Image Processing ---
+opencv-python>=4.8.0  # Image reading, drawing bounding boxes, visualisation
+Pillow>=10.0.0        # Image I/O used by ultralytics internally
+
+# --- Data Augmentation ---
+albumentations>=1.3.1 # Augmentation library (bbox-safe transforms)
+
+# --- Data Handling & Splitting ---
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.3.0   # For train_test_split
+
+# --- Jupyter Notebook ---
+jupyter>=1.0.0
+notebook>=7.0.0
+ipywidgets>=8.0.0     # Progress bars inside Jupyter
+ipykernel>=6.25.0
+
+# --- Visualisation & Plotting ---
+matplotlib>=3.7.0
+seaborn>=0.12.0
+tqdm>=4.65.0          # Progress bars
+
+# --- Utilities ---
+PyYAML>=6.0           # Reading/writing YAML config files
+requests>=2.31.0      # HTTP requests
+pathlib2>=2.3.7       # Path handling (backport, optional)
+
+# ============================================================
+# INSTALL INSTRUCTIONS FOR M2 MACBOOK AIR:
+#
+# 1. Create a virtual environment (recommended):
+#    python3 -m venv spinach_env
+#    source spinach_env/bin/activate
+#
+# 2. Upgrade pip first:
+#    pip install --upgrade pip
+#
+# 3. Install PyTorch for Apple Silicon FIRST (before requirements.txt):
+#    pip install torch torchvision torchaudio
+#    (pip auto-detects ARM/Apple Silicon and installs MPS version)
+#
+# 4. Then install everything else:
+#    pip install -r requirements.txt
+#
+# 5. Verify MPS is working:
+#    python3 -c "import torch; print(torch.backends.mps.is_available())"
+#    Should print: True
+#
+# NOTE: batch_size should be 4 or 8 on M2 Air (not 16)
+# NOTE: always use workers=0 in YOLO training on macOS
+# ============================================================
