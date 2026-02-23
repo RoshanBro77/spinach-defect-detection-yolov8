@@ -157,6 +157,5 @@ yolo detect val model=runs/detect/train/weights/best.pt data=dataset.yaml split=
 
 ## 👨‍💻 Author
 
-Your Name  
-Master of Data Science  
-Computer Vision Project
+Roshan Sadha Sanker
+Master of Data Science
